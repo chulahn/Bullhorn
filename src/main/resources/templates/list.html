@@ -14,18 +14,27 @@
     <h1 class="display-4">Bullhorn!</h1>
     <p class="lead">Welcome to the app made by me!</p>
     <hr class="my-4">
-    <p>I learned from the best at Montgomery College.</p>
+    <p>I learned from the best at Montgomery College, Jennifer "Beloved" Lee.</p>
     <a class="btn btn-primary btn-lg" href="/add">Add a Messages</a><br />
 </div>
 
-<table>
+<div class="container">
+
+<table class="table">
     <tr>
+        <th>Image </th>
         <th>Posted Date</th>
         <th>Sent By</th>
         <th>Description</th>
         <td>Actions</td>
     </tr>
     <tr th:each="message : ${messages}">
+        <td>
+            <div th:if="${message.picture} != null">
+            <img class="img-fluid" th:src="${message.picture}" />
+            <hr />
+            </div>
+        </td>
         <td th:text="${message.postedDate}"></td>
         <td th:text="${message.sentBy}"></td>
         <td th:text="${message.content}"></td>
@@ -36,7 +45,7 @@
         </td>
     </tr>
 </table>
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

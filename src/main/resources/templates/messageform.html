@@ -12,6 +12,7 @@
 <form action="#"
       th:action="@{/process}"
       th:object="${message}"
+      enctype="multipart/form-data"
       method="post">
     <div class="form-group">
         <input type="hidden" th:field="*{id}" />
@@ -28,6 +29,9 @@
         Message :<textarea rows="3" th:field="*{content}" />
         <span th:if="${#fields.hasErrors('content')}"
               th:errors="*{content}"></span>
+    </div>
+    <div class="form-group">
+        Image: <input type="file" name="file" />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
